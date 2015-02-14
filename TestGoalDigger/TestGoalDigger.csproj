@@ -59,7 +59,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestsHelper.cs" />
+    <Compile Include="TestHelper.cs" />
+    <Compile Include="AddWishTest.cs" />
+    <Compile Include="ViewingWishesTest.cs" />
     <Compile Include="ZeroStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
