@@ -59,11 +59,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestsHelper.cs" />
     <Compile Include="ZeroStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoalDigger\GoalDigger.csproj">
+      <Project>{687a3168-b21e-4be6-893c-75171eade748}</Project>
+      <Name>GoalDigger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
