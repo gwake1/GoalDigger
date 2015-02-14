@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="TestHelper.cs" />
     <Compile Include="AddWishTest.cs" />
+    <Compile Include="WishModelTest.cs" />
     <Compile Include="ViewingWishesTest.cs" />
     <Compile Include="ZeroStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

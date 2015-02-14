@@ -8,9 +8,15 @@ namespace GoalDigger.Model
 {
     public class Wish
     {
-        public Wish(string WishName, string WishDate, int Price)
+        public string Date;
+        public string Name;
+        public int Price;
+
+        public Wish(string WishName, string WishDate, int WishPrice)
         {
-            throw new NotImplementedException();
+            this.Date = WishDate;
+            this.Name = WishName;
+            this.Price = WishPrice;
         }
     }
 }
