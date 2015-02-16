@@ -22,14 +22,11 @@ namespace GoalDigger
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Wish> Wishes;
-
         public MainWindow()
         {
-            Wishes = new ObservableCollection<Wish>();
-            Wishes.Add(new Wish("SurfBoard", "02/14/2015", 80));
+            new Wish("SurfBoard", "02/14/2015", 80);
             InitializeComponent();
-            WishList.DataContext = Wishes;
+            WishList.DataContext = Wish.Wishes;
         }
     }
 }

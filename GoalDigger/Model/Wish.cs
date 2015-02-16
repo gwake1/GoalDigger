@@ -10,6 +10,8 @@ namespace GoalDigger.Model
 {
     public class Wish: INotifyPropertyChanged
     {
+        public static ObservableCollection<Wish> Wishes = new ObservableCollection<Wish>();
+
         public string Date;
         public string Name;
         public int Price;
@@ -24,6 +26,7 @@ namespace GoalDigger.Model
             this.Date = WishDate;
             this.Name = WishName;
             this.Price = WishPrice;
+            Wishes.Add(this);
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }

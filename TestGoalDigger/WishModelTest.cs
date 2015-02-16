@@ -8,6 +8,14 @@ namespace TestGoalDigger
     public class WishModelTest
     {
         [TestMethod]
+        public void CreatingAWishStoresItInWishes()
+        {
+            Wish beyonce = new Wish("QueenB", "02/14/2015", 1000000);
+            CollectionAssert.Contains(Wish.Wishes, beyonce);
+        }
+
+
+        [TestMethod]
         public void CreatingAWishStoresItsProperties()
         {
             Wish item = new Wish("SurfBoard", "02/14/2015", 80);
