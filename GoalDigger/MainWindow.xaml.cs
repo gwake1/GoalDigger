@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GoalDigger.Model;
+using GoalDigger;
 
 namespace GoalDigger
 {
@@ -24,9 +25,13 @@ namespace GoalDigger
     {
         public MainWindow()
         {
-            new Wish("SurfBoard", "02/14/2015", 80);
-            InitializeComponent();
-            WishList.DataContext = Wish.Wishes;
+            using (var _dbContext = new WishContext())
+            {
+                _dbContext.Wishes.Add(new Wish("New Year's Eve", "12/31/2015", 1500));
+                _dbContext.Wishes.Add(new Wish("Birthday", "12/25/2015", 75));
+                _dbContext.SaveChanges();
+            }
+                InitializeComponent();
         }
     }
 }

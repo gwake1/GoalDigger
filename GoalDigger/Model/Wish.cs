@@ -8,26 +8,18 @@ using System.Threading.Tasks;
 
 namespace GoalDigger.Model
 {
-    public class Wish: INotifyPropertyChanged
+    public class Wish
     {
-        public static ObservableCollection<Wish> Wishes = new ObservableCollection<Wish>();
-
-        public string Date;
-        public string Name;
-        public int Price;
-
-        public Wish()
-        {
-            //wish
-        }
+        public int WishId { get; set; }
+        public string Date { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
 
         public Wish(string WishName, string WishDate, int WishPrice)
         {
             this.Date = WishDate;
             this.Name = WishName;
             this.Price = WishPrice;
-            Wishes.Add(this);
         }
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
