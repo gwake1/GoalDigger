@@ -38,9 +38,9 @@ namespace TestGoalDigger
         [TestMethod]
         public void TestZeroStateDefaultWishList()
         {
-            ListBox countdowns = window.Get<ListBox>("WishList");
-            Assert.AreEqual(1, countdowns.Items.Count);
-            Assert.AreEqual("SurfBoard", countdowns.Items[0].Text);
+            ListBox wishlist = window.Get<ListBox>("WishList");
+            Assert.AreEqual(1, wishlist.Items.Count);
+            Assert.AreEqual("SurfBoard", wishlist.Items[0].Text);
         }
 
         [ClassCleanup]

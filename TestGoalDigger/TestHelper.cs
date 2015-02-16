@@ -1,21 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestStack.White.UIItems.WindowItems;
+using TestStack.White;
+using System.IO;
+using System.Reflection;
+using TestStack.White.Factory;
+using TestStack.White.UIItems.ListBoxItems;
+using TestStack.White.UIItems.Finders;
+using TestStack.White.UIItems;
 using GoalDigger.Model;
+using System.Windows.Automation;
+
+
 
 namespace TestGoalDigger
 {
     public class TestHelper
     {
+        private static Application application;
+        private static TestContext test_context;
+        private static Window window;
+
+        public static void Setup(TestContext _context)
+        {
+            test_context = _context;
+            var applicationDir = _context.DeploymentDirectory;
+            var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\GoalDigger\\bin\\Debug\\GoalDigger");
+            application = Application.Launch(applicationPath);
+            window = application.GetWindow("MainWindow", InitializeOption.NoCache);
+        }
+
         public void AndIShouldSeeAnError(string p)
         {
             throw new NotImplementedException();
         }
         public void AndIShouldSeeXEvents(int p)
         {
-            throw new NotImplementedException();
+            Assert.IsNotNull(window);
+            ListBox wishitems = window.Get<ListBox>("WishList");
+            Assert.AreEqual(p, wishitems.Items.Count);
         }
         public void AndTheButtonShouldBeEnabled(string p)
         {
@@ -77,9 +100,12 @@ namespace TestGoalDigger
         {
             throw new NotImplementedException();
         }
-        public void GivenTheseEvents(params Wish[] wishes)
+        public void GivenTheseWishes(params Wish[] wishes)
         {
-            throw new NotImplementedException();
+            foreach (Wish wish in wishes)
+            {
+                //add wish to wishes
+            }
         }
         public void AndIShouldSeeAnErrorMessage(string p1)
         {
@@ -88,6 +114,11 @@ namespace TestGoalDigger
         public void AndIChooseTheWishPrice(int p1)
         {
             throw new NotImplementedException();
+        }
+        public static void CleanThisUp()
+        {
+            window.Close();
+            application.Close();
         }
     }
 }

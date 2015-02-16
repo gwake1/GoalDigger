@@ -11,10 +11,22 @@ namespace TestGoalDigger
         // In order to have hope in my life
         // I want to see wishes that i am saving for
 
+        [ClassInitialize]
+        public static void SetupTests(TestContext _context)
+        {
+            TestHelper.Setup(_context);
+        }
+
+        [ClassCleanup]
+        public static void Cleanup()
+        {
+            TestHelper.CleanThisUp();
+        }
+
         [TestMethod]
         public void ScenarioViewingCountdownsWhenThereAreEvents()
         {
-            GivenTheseEvents(
+            GivenTheseWishes(
                 new Wish("Surfboard", "02/15/2015", 80),
                 new Wish("Christmas", "12/25/14", 100)
                 );
