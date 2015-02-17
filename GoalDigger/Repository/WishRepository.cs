@@ -15,9 +15,15 @@ namespace GoalDigger.Repository
         public WishRepository()
         {
             _dbContext = new WishContext();
+            _dbContext.Wishes.Load();
         }
 
-        public DbSet<Model.Wish>GetDbSet()
+        public WishContext Context()
+        {
+            return _dbContext;
+        }
+
+        public DbSet<Model.Wish> GetDbSet()
         {
             return _dbContext.Wishes;
         }

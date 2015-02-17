@@ -8,7 +8,7 @@ using GoalDigger.Model;
 
 namespace GoalDigger
 {
-    class WishContext: DbContext
+    public class WishContext: DbContext
     {
         public DbSet<Wish> Wishes { get; set; }
     }

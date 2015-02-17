@@ -63,6 +63,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201502162359264_addentity.cs" />
+    <Compile Include="Migrations\201502162359264_addentity.Designer.cs">
+      <DependentUpon>201502162359264_addentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IWishRepository.cs" />
     <Compile Include="Repository\WishRepository.cs" />
     <Compile Include="WishContext.cs" />
@@ -94,6 +99,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201502162359264_addentity.resx">
+      <DependentUpon>201502162359264_addentity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

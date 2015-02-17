@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White;
@@ -7,27 +7,33 @@ using System.Reflection;
 using TestStack.White.Factory;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.Finders;
-using TestStack.White.UIItems;
-using GoalDigger.Model;
 using System.Windows.Automation;
-
-
+using TestStack.White.UIItems;
+using GoalDigger;
+using GoalDigger.Model;
+using GoalDigger.Repository;
 
 namespace TestGoalDigger
 {
     public class TestHelper
     {
-        private static Application application;
         private static TestContext test_context;
         private static Window window;
+        private static Application application;
+        private static WishRepository repo = new WishRepository();
+        private static WishContext context;
 
         public static void Setup(TestContext _context)
         {
             test_context = _context;
+
             var applicationDir = _context.DeploymentDirectory;
             var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\GoalDigger\\bin\\Debug\\GoalDigger");
             application = Application.Launch(applicationPath);
             window = application.GetWindow("MainWindow", InitializeOption.NoCache);
+            //repo = new EventRepository();
+            context = repo.Context();
+
         }
 
         public void AndIShouldSeeAnError(string p)
@@ -118,6 +124,7 @@ namespace TestGoalDigger
         public static void CleanThisUp()
         {
             window.Close();
+            repo.Clear();
             application.Close();
         }
     }

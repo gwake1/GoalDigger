@@ -15,6 +15,11 @@ namespace GoalDigger.Model
         public string Name { get; set; }
         public int Price { get; set; }
 
+        public Wish()
+        {
+            //something
+        }
+
         public Wish(string WishName, string WishDate, int WishPrice)
         {
             this.Date = WishDate;
