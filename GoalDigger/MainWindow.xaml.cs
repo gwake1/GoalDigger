@@ -13,8 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GoalDigger.Model;
+using System.Data.Entity;
 using GoalDigger;
+using GoalDigger.Model;
+using GoalDigger.Repository;
 
 namespace GoalDigger
 {
@@ -23,15 +25,15 @@ namespace GoalDigger
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static WishRepository repo = new WishRepository();
         public MainWindow()
         {
-            using (var _dbContext = new WishContext())
-            {
-                _dbContext.Wishes.Add(new Wish("New Year's Eve", "12/31/2015", 1500));
-                _dbContext.Wishes.Add(new Wish("Birthday", "12/25/2015", 75));
-                _dbContext.SaveChanges();
-            }
-                InitializeComponent();
+            InitializeComponent();
+            WishList.DataContext = repo.Context().Wishes.Local;
+        }
+        private void AddWish_Click(object sender, RoutedEventArgs e)
+        {
+            repo.Add(new Wish(WishName.Text, WishDate.SelectedDate.ToString(),Int32.Parse(WishPrice.Text)));
         }
     }
 }

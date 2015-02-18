@@ -11,43 +11,38 @@ using TestStack.White.UIItems.Finders;
 namespace TestGoalDigger
 {
     [TestClass]
-    public class ZeroStateTest
+    public class ZeroStateTest : TestHelper
     {
-
-        private static TestContext test_context;
-        private static Window window;
-        private static Application application;
-
         [ClassInitialize]
-        public static void Setup(TestContext _context)
+        public static void SetupTests(TestContext _context)
         {
-            test_context = _context;
-            var applicationDir = _context.DeploymentDirectory;
-            var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\GoalDigger\\bin\\Debug\\GoalDigger");
-            application = Application.Launch(applicationPath);
-            window = application.GetWindow("MainWindow", InitializeOption.NoCache);
+            TestHelper.SetupClass(_context);
+        }
+
+        [TestInitialize]
+        public void SetupTests()
+        {
+            TestHelper.TestPrep();
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            TestHelper.CleanThisUp();
         }
 
         [TestMethod]
-        public void TestZeroStateAddWishButton()
+        public void TestZeroStateAddButton()
         {
-            Button button = window.Get<Button>("AddWish");
-            Assert.AreEqual("Add to Wish List", button.Text);
+            Button button = window.Get<Button>("Add");
+            Assert.AreEqual("+", button.Text);
         }
 
         [TestMethod]
-        public void TestZeroStateDefaultWishList()
+        public void TestZeroStateHelpElements()
         {
-            ListBox wishlist = window.Get<ListBox>("WishList");
-            Assert.AreEqual(1, wishlist.Items.Count);
-            Assert.AreEqual("SurfBoard", wishlist.Items[0].Text);
-        }
-
-        [ClassCleanup]
-        public static void CleanThisUp()
-        {
-            window.Close();
-            application.Close();
+            var text = window.Get(SearchCriteria.ByAutomationId("GettingStartedText"));
+            Assert.IsTrue(text.Visible);
         }
     }
 }

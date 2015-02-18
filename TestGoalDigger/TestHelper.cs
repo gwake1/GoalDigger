@@ -18,22 +18,23 @@ namespace TestGoalDigger
     public class TestHelper
     {
         private static TestContext test_context;
-        private static Window window;
+        protected static Window window;
         private static Application application;
         private static WishRepository repo = new WishRepository();
         private static WishContext context;
+        private static String applicationPath;
 
-        public static void Setup(TestContext _context)
+        public static void SetupClass(TestContext _context)
         {
-            test_context = _context;
-
             var applicationDir = _context.DeploymentDirectory;
-            var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\GoalDigger\\bin\\Debug\\GoalDigger");
+            applicationPath = Path.Combine(applicationDir, "..\\..\\..\\GoalDigger\\bin\\Debug\\GoalDigger");
+        }
+
+        public static void TestPrep()
+        {
             application = Application.Launch(applicationPath);
             window = application.GetWindow("MainWindow", InitializeOption.NoCache);
-            //repo = new EventRepository();
             context = repo.Context();
-
         }
 
         public void AndIShouldSeeAnError(string p)

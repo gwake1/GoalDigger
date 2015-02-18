@@ -14,7 +14,7 @@ namespace TestGoalDigger
         [ClassInitialize]
         public static void SetupTests(TestContext _context)
         {
-            TestHelper.Setup(_context);
+            TestHelper.SetupClass(_context);
         }
 
         [ClassCleanup]

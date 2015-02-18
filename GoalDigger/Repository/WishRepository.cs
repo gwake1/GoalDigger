@@ -30,12 +30,13 @@ namespace GoalDigger.Repository
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.Wishes.Count<Model.Wish>();
         }
 
         public void Add(Model.Wish W)
         {
-            throw new NotImplementedException();
+            _dbContext.Wishes.Add(W);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(Model.Wish W)
@@ -45,7 +46,9 @@ namespace GoalDigger.Repository
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var a = this.All();
+            _dbContext.Wishes.RemoveRange(a);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Model.Wish> PastWishes()
@@ -60,7 +63,8 @@ namespace GoalDigger.Repository
 
         public IEnumerable<Model.Wish> All()
         {
-            throw new NotImplementedException();
+            var query = from Wish in _dbContext.Wishes select Wish;
+            return query.ToList<Model.Wish>();
         }
 
         public Model.Wish GetById(int id)
@@ -73,7 +77,10 @@ namespace GoalDigger.Repository
 
         public Model.Wish GetByDate(string date)
         {
-            throw new NotImplementedException();
+            var query = from Wish in _dbContext.Wishes
+                        where Wish.Date == date
+                        select Wish;
+            return query.First<Model.Wish>();
         }
 
         public IQueryable<Model.Wish> SearchFor(System.Linq.Expressions.Expression<Func<Model.Wish, bool>> predicate)
