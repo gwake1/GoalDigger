@@ -34,15 +34,8 @@ namespace TestGoalDigger
         [TestMethod]
         public void TestZeroStateAddButton()
         {
-            Button button = window.Get<Button>("Add");
-            Assert.AreEqual("+", button.Text);
-        }
-
-        [TestMethod]
-        public void TestZeroStateHelpElements()
-        {
-            var text = window.Get(SearchCriteria.ByAutomationId("GettingStartedText"));
-            Assert.IsTrue(text.Visible);
+            Button button = window.Get<Button>("AddWish");
+            Assert.AreEqual("Add to Wish List", button.Text);
         }
     }
 }

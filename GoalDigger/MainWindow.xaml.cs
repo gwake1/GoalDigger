@@ -30,10 +30,21 @@ namespace GoalDigger
         {
             InitializeComponent();
             WishList.DataContext = repo.Context().Wishes.Local;
+            ClearWishForm();
         }
         private void AddWish_Click(object sender, RoutedEventArgs e)
         {
-            repo.Add(new Wish(WishName.Text, WishDate.SelectedDate.ToString(),Int32.Parse(WishPrice.Text)));
+            repo.Add(new Wish(WishName.Text, WishDate.SelectedDate.ToString(), Convert.ToInt32(WishPrice.Text)));
+            ClearWishForm();
+        }
+
+        private void ClearWishForm()
+        {
+            WishName.Clear();
+            WishName.Text = "Name";
+            WishPrice.Clear();
+            WishPrice.Text = "Price";
+            WishDate.Text = System.DateTime.Today.ToString();
         }
     }
 }

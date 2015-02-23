@@ -44,8 +44,9 @@ namespace TestGoalDigger
         public void AndIShouldSeeXEvents(int p)
         {
             Assert.IsNotNull(window);
-            ListBox wishitems = window.Get<ListBox>("WishList");
-            Assert.AreEqual(p, wishitems.Items.Count);
+            SearchCriteria searchCriteria = SearchCriteria.ByAutomationId("WishList").AndIndex(0);
+            ListBox list_box = (ListBox)window.Get(searchCriteria);
+            Assert.AreEqual(p, list_box.Items.Count);
         }
         public void AndTheButtonShouldBeEnabled(string p)
         {
@@ -57,11 +58,21 @@ namespace TestGoalDigger
         }
         public void AndIShoulSeeAWishFor(string p1, string p2, int p3)
         {
-            throw new NotImplementedException();
+            var e = repo.GetByDate(p2);
+            Assert.IsNotNull(window);
+            SearchCriteria searchCriteria = SearchCriteria.ByAutomationId("WishList").AndIndex(0);
+            ListBox list_box = (ListBox)window.Get(searchCriteria);
+            var item = list_box.Items.Find(i => i.Text == p1);
+            Assert.AreEqual(p1, item.Text);
         }
         public void ThenIshouldSeeAWishFor(string p1, string p2, int p3)
         {
-            throw new NotImplementedException();
+            var e = repo.GetByDate(p2);
+            Assert.IsNotNull(window);
+            SearchCriteria searchCriteria = SearchCriteria.ByAutomationId("WishList").AndIndex(0);
+            ListBox list_box = (ListBox)window.Get(searchCriteria);
+            var item = list_box.Items.Find(i => i.Text == p1);
+            Assert.AreEqual(p1, item.Text);
         }
         public void AndIshouldSeeAWishFor(string p1, string p2, int p3)
         {
@@ -77,19 +88,21 @@ namespace TestGoalDigger
         }
         public void AndIClick(string p)
         {
-            throw new NotImplementedException();
+            WhenIClick(p);
         }
         public void AndIChooseTheWishDate(string p)
         {
             throw new NotImplementedException();
         }
-        public void AndIEnterWishName(string p)
-        {
-            throw new NotImplementedException();
-        }
         public void WhenIEnterWishName(string p)
         {
-            throw new NotImplementedException();
+            //TextBox textbox = (TextBox)window.Get(SearchCriteria.ByAutomationId("WishName").AndIndex(0));
+            var textbox = window.Get<TextBox>("WishName");
+            //textbox.SetValue(p);
+        }
+        public void AndIEnterWishName(string p)
+        {
+            WhenIEnterWishName(p);
         }
         public void AndIEnterWishDate(string p)
         {
@@ -101,11 +114,13 @@ namespace TestGoalDigger
         }
         public void WhenIClick(string p)
         {
-            throw new NotImplementedException();
+            Button button = (Button)window.Get(SearchCriteria.ByAutomationId(p).AndIndex(0));
+            //Button button = window.Get<Button>(SearchCriteria.ByAutomationId(p));
+            button.Click();
         }
         public void GivenThereAreNoWishes()
         {
-            throw new NotImplementedException();
+            Assert.AreEqual(0, repo.GetCount());
         }
         public void GivenTheseWishes(params Wish[] wishes)
         {

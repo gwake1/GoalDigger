@@ -30,8 +30,7 @@ namespace TestGoalDigger
                 new Wish("Surfboard", "02/15/2015", 80),
                 new Wish("Christmas", "12/25/14", 100)
                 );
-            AndIShouldSeeXEvents(2);
-            AndIShoulSeeAWishFor("Valentine's Day", "02/14/15", 80);
+            AndIShoulSeeAWishFor("Surfboard", "02/15/2015", 80);
             AndIShoulSeeAWishFor("Christmas", "12/25/14", 100);
             AndTheButtonShouldBeEnabled("Add Wish");
         }
