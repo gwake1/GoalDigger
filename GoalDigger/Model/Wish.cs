@@ -13,14 +13,14 @@ namespace GoalDigger.Model
         public int WishId { get; set; }
         public string Date { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
+        public string Price { get; set; }
 
         public Wish()
         {
             //something
         }
 
-        public Wish(string WishName, string WishDate, int WishPrice)
+        public Wish(string WishName, string WishDate, string WishPrice)
         {
             this.Date = WishDate;
             this.Name = WishName;

@@ -56,7 +56,7 @@ namespace TestGoalDigger
         {
             throw new NotImplementedException();
         }
-        public void AndIShoulSeeAWishFor(string p1, string p2, int p3)
+        public void AndIShoulSeeAWishFor(string p1, string p2, string p3)
         {
             var e = repo.GetByDate(p2);
             Assert.IsNotNull(window);

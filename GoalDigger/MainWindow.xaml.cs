@@ -34,7 +34,7 @@ namespace GoalDigger
         }
         private void AddWish_Click(object sender, RoutedEventArgs e)
         {
-            repo.Add(new Wish(WishName.Text, WishDate.SelectedDate.ToString(), Convert.ToInt32(WishPrice.Text)));
+            repo.Add(new Wish(WishName.Text, WishDate.SelectedDate.ToString(), WishPrice.Text));
             ClearWishForm();
         }
 

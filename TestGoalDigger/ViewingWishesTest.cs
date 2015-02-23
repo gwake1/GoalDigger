@@ -27,11 +27,11 @@ namespace TestGoalDigger
         public void ScenarioViewingCountdownsWhenThereAreEvents()
         {
             GivenTheseWishes(
-                new Wish("Surfboard", "02/15/2015", 80),
-                new Wish("Christmas", "12/25/14", 100)
+                new Wish("Surfboard", "02/15/2015", "80"),
+                new Wish("Christmas", "12/25/14", "100")
                 );
-            AndIShoulSeeAWishFor("Surfboard", "02/15/2015", 80);
-            AndIShoulSeeAWishFor("Christmas", "12/25/14", 100);
+            AndIShoulSeeAWishFor("Surfboard", "02/15/2015", "80");
+            AndIShoulSeeAWishFor("Christmas", "12/25/14", "100");
             AndTheButtonShouldBeEnabled("Add Wish");
         }
     }
