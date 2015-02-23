@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201502231925456_StringWishPrice.Designer.cs">
       <DependentUpon>201502231925456_StringWishPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502231937305_BackToIntWishPrice.cs" />
+    <Compile Include="Migrations\201502231937305_BackToIntWishPrice.Designer.cs">
+      <DependentUpon>201502231937305_BackToIntWishPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IWishRepository.cs" />
     <Compile Include="Repository\WishRepository.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502231925456_StringWishPrice.resx">
       <DependentUpon>201502231925456_StringWishPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502231937305_BackToIntWishPrice.resx">
+      <DependentUpon>201502231937305_BackToIntWishPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
