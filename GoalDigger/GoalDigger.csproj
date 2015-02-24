@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditWish.xaml.cs">
+      <DependentUpon>EditWish.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201502162359264_addentity.cs" />
     <Compile Include="Migrations\201502162359264_addentity.Designer.cs">
       <DependentUpon>201502162359264_addentity.cs</DependentUpon>
@@ -79,6 +82,10 @@
     <Compile Include="Repository\IWishRepository.cs" />
     <Compile Include="Repository\WishRepository.cs" />
     <Compile Include="WishContext.cs" />
+    <Page Include="EditWish.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

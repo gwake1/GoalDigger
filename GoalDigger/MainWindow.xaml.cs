@@ -47,5 +47,11 @@ namespace GoalDigger
             WishPrice.Text = "Price";
             WishDate.Text = System.DateTime.Today.ToString();
         }
+
+        private void EditWish_click(object sender, RoutedEventArgs e)
+        {
+            var a = new EditWish();
+            a.Show();
+        }
     }
 }
