@@ -26,6 +26,7 @@ namespace GoalDigger
     public partial class MainWindow : Window
     {
         public static WishRepository repo = new WishRepository();
+        public Wish record;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,12 +47,6 @@ namespace GoalDigger
             WishPrice.Clear();
             WishPrice.Text = "Price";
             WishDate.Text = System.DateTime.Today.ToString();
-        }
-
-        private void EditWish_click(object sender, RoutedEventArgs e)
-        {
-            var a = new EditWish();
-            a.Show();
         }
     }
 }

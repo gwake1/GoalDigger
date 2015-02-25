@@ -11,5 +11,6 @@ namespace GoalDigger
     public class WishContext: DbContext
     {
         public DbSet<Wish> Wishes { get; set; }
+        public DbSet<Housing> Houses { get; set; }
     }
 }
