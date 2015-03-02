@@ -28,6 +28,7 @@ namespace GoalDigger
     {
         public static WishRepository repo = new WishRepository();
         public static BudgetCategoryRepository repoCat = new BudgetCategoryRepository();
+        public List<int> EditList = new List<int>();
 
         public MainWindow()
         {
@@ -53,15 +54,6 @@ namespace GoalDigger
             //WishList.Items.Refresh();
         }
 
-        public void ActuallyDelete_Click(object sender, RoutedEventArgs e)
-        {
-            ListItemCollection wish = (ListItemCollection)WishList.SelectedItem;
-            //TextBlock g = wish.ToList<TextBlock>();
-
-            //TextBlock g = wish.Content as TextBlock;
-
-        }
-
         private void AddToBudget_Click(object sender, RoutedEventArgs e)
         {
             string shortDate = BudgetDate.SelectedDate.Value.ToShortDateString();
@@ -73,6 +65,20 @@ namespace GoalDigger
         {
             var ger = BudgetCategory_Combo.SelectedItem;
             
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            int edit = int.Parse(this.Tag.ToString());
+            EditList.Add(edit);
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var edit in EditList)
+            {
+                repo.Delete(edit);
+            }
         }
     }
 }
