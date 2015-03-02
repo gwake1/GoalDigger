@@ -3,11 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoalDigger;
+using System.Data.Entity;
 
 namespace GoalDigger.Repository
 {
     public class BudgetCategoryRepository: IBudgetCategoryRepository
     {
+         private WishContext _dbContext;
+
+        public BudgetCategoryRepository()
+        {
+            _dbContext = new WishContext();
+            _dbContext.BudgetCats.Load();
+        }
+
+        public WishContext Context()
+        {
+            return _dbContext;
+        }
+
+        public DbSet<Model.BudgetCategory> GetDbSet()
+        {
+            return _dbContext.BudgetCats;
+        }
+
         public int GetCount()
         {
             throw new NotImplementedException();
@@ -35,7 +55,9 @@ namespace GoalDigger.Repository
 
         public IEnumerable<Model.BudgetCategory> All()
         {
-            throw new NotImplementedException();
+            var query = from Wish in _dbContext.BudgetCats
+                        select Wish;
+            return query.ToList<Model.BudgetCategory>();
         }
 
         public Model.BudgetCategory GetById(int WishId)
