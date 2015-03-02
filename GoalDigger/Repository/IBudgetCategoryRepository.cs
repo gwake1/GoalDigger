@@ -13,11 +13,9 @@ namespace GoalDigger.Repository
         int GetCount(); //
         void Add(BudgetCategory Cat); //
         void Delete(int CategoryId); //
-        void Clear(); //
         int CalculateMonth(BudgetCategory Cat); //
         IEnumerable<BudgetCategory> All(); //
-        BudgetCategory GetById(int WishId); //
-        BudgetCategory GetByDate(string date); //
+        BudgetCategory GetById(int CategoryId); //
         IQueryable<BudgetCategory> SearchFor(Expression<Func<BudgetCategory, bool>> predicate);
     }
 }

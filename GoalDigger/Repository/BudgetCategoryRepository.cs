@@ -30,7 +30,7 @@ namespace GoalDigger.Repository
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.BudgetCats.Count<Model.BudgetCategory>();
         }
 
         public void Add(Model.BudgetCategory Cat)
@@ -41,12 +41,9 @@ namespace GoalDigger.Repository
 
         public void Delete(int CategoryId)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotImplementedException();
+            var cat = _dbContext.BudgetCats.Where(x => x.CategoryId == CategoryId);
+            _dbContext.BudgetCats.RemoveRange(cat);
+            _dbContext.SaveChanges();
         }
 
         public int CalculateMonth(Model.BudgetCategory Cat)
@@ -61,14 +58,12 @@ namespace GoalDigger.Repository
             return query.ToList<Model.BudgetCategory>();
         }
 
-        public Model.BudgetCategory GetById(int WishId)
+        public Model.BudgetCategory GetById(int CategoryId)
         {
-            throw new NotImplementedException();
-        }
-
-        public Model.BudgetCategory GetByDate(string date)
-        {
-            throw new NotImplementedException();
+            var query = from Cat in _dbContext.BudgetCats
+                        where Cat.CategoryId == CategoryId
+                        select Cat;
+            return query.First<Model.BudgetCategory>();
         }
 
         public IQueryable<Model.BudgetCategory> SearchFor(System.Linq.Expressions.Expression<Func<Model.BudgetCategory, bool>> predicate)
