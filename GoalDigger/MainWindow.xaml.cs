@@ -27,13 +27,25 @@ namespace GoalDigger
     public partial class MainWindow : Window
     {
         public static WishRepository repo = new WishRepository();
-        public static BudgetCategory repoCat = new BudgetCategory();
-        //public Wish record;
+        public static BudgetCategoryRepository repoCat = new BudgetCategoryRepository();
+        
+        private ObservableCollection<BudgetCategory> _cats;
+        public ObservableCollection<BudgetCategory> BudgetCats {
+            get
+            {
+                return _cats;
+            }
+            set
+            {
+                _cats = value;
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
             WishList.DataContext = repo.GetDbSet().Local;
             ClearBudgetForm();
+            BudgetCategory_Combo.DataContext = repoCat.All();
         }
         private void AddWish_Click(object sender, RoutedEventArgs e)
         {

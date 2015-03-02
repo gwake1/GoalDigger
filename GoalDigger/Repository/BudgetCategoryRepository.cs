@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoalDigger.Repository
 {
-    class BudgetCategoryRepository: IBudgetCategoryRepository
+    public class BudgetCategoryRepository: IBudgetCategoryRepository
     {
         public int GetCount()
         {
