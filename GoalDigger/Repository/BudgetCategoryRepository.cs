@@ -35,7 +35,8 @@ namespace GoalDigger.Repository
 
         public void Add(Model.BudgetCategory Cat)
         {
-            throw new NotImplementedException();
+            _dbContext.BudgetCats.Add(Cat);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int CategoryId)
@@ -55,8 +56,8 @@ namespace GoalDigger.Repository
 
         public IEnumerable<Model.BudgetCategory> All()
         {
-            var query = from Wish in _dbContext.BudgetCats
-                        select Wish;
+            var query = from Category in _dbContext.BudgetCats
+                        select Category;
             return query.ToList<Model.BudgetCategory>();
         }
 
