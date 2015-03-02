@@ -28,30 +28,13 @@ namespace GoalDigger
     {
         public static WishRepository repo = new WishRepository();
         public static BudgetCategoryRepository repoCat = new BudgetCategoryRepository();
-        
-        private ObservableCollection<BudgetCategory> _cats;
-        public ObservableCollection<BudgetCategory> BudgetCats {
-            get
-            {
-                return _cats;
-            }
-            set
-            {
-                _cats = value;
-            }
-        }
+
         public MainWindow()
         {
             InitializeComponent();
             WishList.DataContext = repo.GetDbSet().Local;
             ClearBudgetForm();
-            BudgetCategory_Combo.DataContext = repoCat.All();
-        }
-        private void AddWish_Click(object sender, RoutedEventArgs e)
-        {
-            //string shortDate = WishDate.SelectedDate.Value.ToShortDateString();
-            //repo.Add(new Wish(WishName.Text, shortDate, int.Parse(WishPrice.Text)));
-            //ClearWishForm();
+            BudgetCategory_Combo.DataContext = repoCat.GetDbSet().Local;
         }
 
         private void ClearBudgetForm()
@@ -84,6 +67,12 @@ namespace GoalDigger
             string shortDate = BudgetDate.SelectedDate.Value.ToShortDateString();
             //repo.Add(new Wish(BudgetName.Text, shortDate, BudgetAmount, ))
             ClearBudgetForm();
+        }
+
+        private void BudgetFlow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var ger = BudgetCategory_Combo.SelectedItem;
+            
         }
     }
 }
