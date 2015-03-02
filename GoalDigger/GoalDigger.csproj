@@ -90,9 +90,14 @@
     <Compile Include="Migrations\201503012341058_CategorizeSpending.Designer.cs">
       <DependentUpon>201503012341058_CategorizeSpending.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503020725410_BudgetCategories.cs" />
+    <Compile Include="Migrations\201503020725410_BudgetCategories.Designer.cs">
+      <DependentUpon>201503020725410_BudgetCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Housing.cs" />
-    <Compile Include="Repository\HousingRepository.cs" />
+    <Compile Include="Model\BudgetCategory.cs" />
+    <Compile Include="Repository\BudgetCategoryRepository.cs" />
+    <Compile Include="Repository\IBudgetCategoryRepository.cs" />
     <Compile Include="Repository\IWishRepository.cs" />
     <Compile Include="Repository\WishRepository.cs" />
     <Compile Include="WishContext.cs" />
@@ -145,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503012341058_CategorizeSpending.resx">
       <DependentUpon>201503012341058_CategorizeSpending.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503020725410_BudgetCategories.resx">
+      <DependentUpon>201503020725410_BudgetCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

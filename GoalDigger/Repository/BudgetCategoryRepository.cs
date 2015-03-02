@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace GoalDigger.Repository
 {
-    class HousingRepository : IWishRepository
+    class BudgetCategoryRepository: IBudgetCategoryRepository
     {
         public int GetCount()
         {
             throw new NotImplementedException();
         }
 
-        public void Add(Model.Wish W)
+        public void Add(Model.BudgetCategory Cat)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int wishId)
+        public void Delete(int CategoryId)
         {
             throw new NotImplementedException();
         }
@@ -28,32 +28,27 @@ namespace GoalDigger.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Wish> PastWishes()
+        public int CalculateMonth(Model.BudgetCategory Cat)
         {
             throw new NotImplementedException();
         }
 
-        public int CalculateMonth(Model.Wish W)
+        public IEnumerable<Model.BudgetCategory> All()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Wish> All()
+        public Model.BudgetCategory GetById(int WishId)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Wish GetById(int id)
+        public Model.BudgetCategory GetByDate(string date)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Wish GetByDate(string date)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<Model.Wish> SearchFor(System.Linq.Expressions.Expression<Func<Model.Wish, bool>> predicate)
+        public IQueryable<Model.BudgetCategory> SearchFor(System.Linq.Expressions.Expression<Func<Model.BudgetCategory, bool>> predicate)
         {
             throw new NotImplementedException();
         }

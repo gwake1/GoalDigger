@@ -30,17 +30,6 @@ namespace GoalDigger.Model
             this.Category = WishCategory;
             this.Flow = WishFlow;
         }
-
-        //public Wish(string p1, string p2, System.Windows.Controls.TextBox WishPrice)
-        //{
-        //    // TODO: Complete member initialization
-        //    this.Date = p1;
-        //    this.Name = p2;
-        //    this.WishPrice = WishPrice;
-        //}
         public event PropertyChangedEventHandler PropertyChanged;
-        //private string p1;
-        //private string p2;
-        //private System.Windows.Controls.TextBox WishPrice;
     }
 }

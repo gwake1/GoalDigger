@@ -27,7 +27,8 @@ namespace GoalDigger
     public partial class MainWindow : Window
     {
         public static WishRepository repo = new WishRepository();
-        public Wish record;
+        public static BudgetCategory repoCat = new BudgetCategory();
+        //public Wish record;
         public MainWindow()
         {
             InitializeComponent();
@@ -43,9 +44,7 @@ namespace GoalDigger
 
         private void ClearBudgetForm()
         {
-            //BudgetName.Clear();
             BudgetName.Text = "Name";
-            //BudgetAmount.Clear();
             BudgetAmount.Text = "Price";
             BudgetDate.Text = System.DateTime.Today.ToString();
         }
@@ -70,6 +69,8 @@ namespace GoalDigger
 
         private void AddToBudget_Click(object sender, RoutedEventArgs e)
         {
+            string shortDate = BudgetDate.SelectedDate.Value.ToShortDateString();
+            //repo.Add(new Wish(BudgetName.Text, shortDate, BudgetAmount, ))
             ClearBudgetForm();
         }
     }
