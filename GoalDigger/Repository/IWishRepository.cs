@@ -12,12 +12,12 @@ namespace GoalDigger.Repository
     {
         int GetCount(); //
         void Add(Wish W); //
-        void Delete(Wish W); //
+        void Delete(int WishId); //
         void Clear(); //
         IEnumerable<Wish> PastWishes(); //
         int CalculateMonth(Wish W); //
         IEnumerable<Wish> All(); //
-        Wish GetById(int id); //
+        Wish GetById(int WishId); //
         Wish GetByDate(string date); //
         IQueryable<Wish> SearchFor(Expression<Func<Wish, bool>> predicate);
     }

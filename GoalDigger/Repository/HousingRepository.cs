@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoalDigger.Repository
 {
-    class HousingRepository: IWishRepository
+    class HousingRepository : IWishRepository
     {
         public int GetCount()
         {
@@ -18,7 +18,7 @@ namespace GoalDigger.Repository
             throw new NotImplementedException();
         }
 
-        public void Delete(Model.Wish W)
+        public void Delete(int wishId)
         {
             throw new NotImplementedException();
         }

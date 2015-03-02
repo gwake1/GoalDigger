@@ -17,6 +17,7 @@ using System.Data.Entity;
 using GoalDigger;
 using GoalDigger.Model;
 using GoalDigger.Repository;
+using System.Xml;
 
 namespace GoalDigger
 {
@@ -30,13 +31,14 @@ namespace GoalDigger
         public MainWindow()
         {
             InitializeComponent();
-            WishList.DataContext = repo.Context().Wishes.Local;
+            WishList.DataContext = repo.GetDbSet().Local;
+            //repo.Delete(11);
             ClearWishForm();
         }
         private void AddWish_Click(object sender, RoutedEventArgs e)
         {
             string shortDate = WishDate.SelectedDate.Value.ToShortDateString();
-            repo.Add(new Wish(WishName.Text, shortDate, int.Parse(WishPrice.Text)));
+            //repo.Add(new Wish(WishName.Text, shortDate, int.Parse(WishPrice.Text)));
             ClearWishForm();
         }
 
@@ -47,6 +49,24 @@ namespace GoalDigger
             WishPrice.Clear();
             WishPrice.Text = "Price";
             WishDate.Text = System.DateTime.Today.ToString();
+        }
+
+        public void DeleteWish_Click(object sender, RoutedEventArgs e)
+        {
+
+            //int unitTypeId = (this.WishList.SelectedItem as Wish).WishId;
+            //ListBoxItem done = (ListBoxItem)WishList.SelectedItem;
+            //repo.Delete(unitTypeId);
+            //WishList.Items.Refresh();
+        }
+
+        public void ActuallyDelete_Click(object sender, RoutedEventArgs e)
+        {
+            ListItemCollection wish = (ListItemCollection)WishList.SelectedItem;
+            //TextBlock g = wish.ToList<TextBlock>();
+
+            //TextBlock g = wish.Content as TextBlock;
+
         }
     }
 }

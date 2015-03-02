@@ -39,9 +39,11 @@ namespace GoalDigger.Repository
             _dbContext.SaveChanges();
         }
 
-        public void Delete(Model.Wish W)
+        public void Delete(int WishId)
         {
-            throw new NotImplementedException();
+            var wish = _dbContext.Wishes.Where(x => x.WishId == WishId);
+            _dbContext.Wishes.RemoveRange(wish);
+            _dbContext.SaveChanges();
         }
 
         public void Clear()
@@ -63,7 +65,8 @@ namespace GoalDigger.Repository
 
         public IEnumerable<Model.Wish> All()
         {
-            var query = from Wish in _dbContext.Wishes select Wish;
+            var query = from Wish in _dbContext.Wishes 
+                        select Wish;
             return query.ToList<Model.Wish>();
         }
 

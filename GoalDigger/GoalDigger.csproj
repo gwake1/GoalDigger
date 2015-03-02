@@ -82,6 +82,14 @@
     <Compile Include="Migrations\201502251946586_Housing.Designer.cs">
       <DependentUpon>201502251946586_Housing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502261956089_AddHashField.cs" />
+    <Compile Include="Migrations\201502261956089_AddHashField.Designer.cs">
+      <DependentUpon>201502261956089_AddHashField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503012341058_CategorizeSpending.cs" />
+    <Compile Include="Migrations\201503012341058_CategorizeSpending.Designer.cs">
+      <DependentUpon>201503012341058_CategorizeSpending.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Housing.cs" />
     <Compile Include="Repository\HousingRepository.cs" />
@@ -131,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502251946586_Housing.resx">
       <DependentUpon>201502251946586_Housing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502261956089_AddHashField.resx">
+      <DependentUpon>201502261956089_AddHashField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503012341058_CategorizeSpending.resx">
+      <DependentUpon>201503012341058_CategorizeSpending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
