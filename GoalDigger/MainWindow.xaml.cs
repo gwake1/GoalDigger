@@ -32,23 +32,22 @@ namespace GoalDigger
         {
             InitializeComponent();
             WishList.DataContext = repo.GetDbSet().Local;
-            //repo.Delete(11);
-            ClearWishForm();
+            ClearBudgetForm();
         }
         private void AddWish_Click(object sender, RoutedEventArgs e)
         {
-            string shortDate = WishDate.SelectedDate.Value.ToShortDateString();
+            //string shortDate = WishDate.SelectedDate.Value.ToShortDateString();
             //repo.Add(new Wish(WishName.Text, shortDate, int.Parse(WishPrice.Text)));
-            ClearWishForm();
+            //ClearWishForm();
         }
 
-        private void ClearWishForm()
+        private void ClearBudgetForm()
         {
-            WishName.Clear();
-            WishName.Text = "Name";
-            WishPrice.Clear();
-            WishPrice.Text = "Price";
-            WishDate.Text = System.DateTime.Today.ToString();
+            //BudgetName.Clear();
+            BudgetName.Text = "Name";
+            //BudgetAmount.Clear();
+            BudgetAmount.Text = "Price";
+            BudgetDate.Text = System.DateTime.Today.ToString();
         }
 
         public void DeleteWish_Click(object sender, RoutedEventArgs e)
@@ -67,6 +66,11 @@ namespace GoalDigger
 
             //TextBlock g = wish.Content as TextBlock;
 
+        }
+
+        private void AddToBudget_Click(object sender, RoutedEventArgs e)
+        {
+            ClearBudgetForm();
         }
     }
 }
