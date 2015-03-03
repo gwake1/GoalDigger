@@ -65,7 +65,7 @@ namespace GoalDigger.Repository
 
         public IEnumerable<Model.Wish> All()
         {
-            var query = from Wish in _dbContext.Wishes 
+            var query = from Wish in _dbContext.Wishes
                         select Wish;
             return query.ToList<Model.Wish>();
         }

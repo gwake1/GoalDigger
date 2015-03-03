@@ -70,5 +70,13 @@ namespace GoalDigger.Repository
         {
             throw new NotImplementedException();
         }
+        public List<string> GetCategories(string flow)
+        {
+            var query = from Cat in _dbContext.BudgetCats
+                        where Cat.BudgetFlow == flow
+                        orderby Cat.BudgetFlow
+                        select Cat.CategoryName;
+            return query.Distinct().ToList();
+        }
     }
 }

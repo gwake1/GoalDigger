@@ -28,14 +28,12 @@ namespace GoalDigger
     {
         public static WishRepository repo = new WishRepository();
         public static BudgetCategoryRepository repoCat = new BudgetCategoryRepository();
-        public List<int> EditList = new List<int>();
-
+      
         public MainWindow()
         {
             InitializeComponent();
             WishList.DataContext = repo.GetDbSet().Local;
             ClearBudgetForm();
-            BudgetCategory_Combo.DataContext = repoCat.GetDbSet().Local;
         }
 
         private void ClearBudgetForm()
@@ -57,7 +55,9 @@ namespace GoalDigger
         private void AddToBudget_Click(object sender, RoutedEventArgs e)
         {
             string shortDate = BudgetDate.SelectedDate.Value.ToShortDateString();
-            //repo.Add(new Wish(BudgetName.Text, shortDate, BudgetAmount, ))
+            NewBudgetCategory.Text = BudgetCategory_Combo.SelectionBoxItem.ToString();
+            int BudgetAmountValue = int.Parse(BudgetAmount.Text);
+            repo.Add(new Wish(BudgetName.Text, shortDate, BudgetAmountValue, BudgetCategory_Combo.Text, BudgetFlow.Text));
             ClearBudgetForm();
         }
 
@@ -70,15 +70,44 @@ namespace GoalDigger
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
             int edit = int.Parse(this.Tag.ToString());
-            EditList.Add(edit);
+            //EditList.Add(edit);
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        public void Dashboard_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var edit in EditList)
-            {
-                repo.Delete(edit);
-            }
+
+        }
+
+        public void Detail_Click(object sender, RoutedEventArgs e)
+        {
+            Budget.Visibility = Visibility.Visible;
+            Home.Visibility = Visibility.Collapsed;
+        }
+
+        public void Expense_Click(object sender, RoutedEventArgs e)
+        {
+            Budget.Visibility = Visibility.Visible;
+            Home.Visibility = Visibility.Collapsed;
+            Budget.IsEnabled = true;
+            BudgetFlow.Text = "Expense";
+            BudgetFlow.IsEnabled = false;
+            BudgetCategory_Combo.ItemsSource = repoCat.GetCategories("Expense");
+        }
+
+        public void Income_Click(object sender, RoutedEventArgs e)
+        {
+            Budget.Visibility = Visibility.Visible;
+            Home.Visibility = Visibility.Collapsed;
+            BudgetFlow.IsEnabled = true;
+            BudgetFlow.Text = "Income";
+            BudgetFlow.IsEnabled = false;
+            BudgetCategory_Combo.ItemsSource = repoCat.GetCategories("Income");
+        }
+
+        public void BudgetToHome_Click(object sender, RoutedEventArgs e)
+        {
+            Home.Visibility = Visibility.Visible;
+            Budget.Visibility = Visibility.Collapsed;
         }
     }
 }
