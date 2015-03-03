@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201503020725410_BudgetCategories.Designer.cs">
       <DependentUpon>201503020725410_BudgetCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503030844469_DateTimeSwitch.cs" />
+    <Compile Include="Migrations\201503030844469_DateTimeSwitch.Designer.cs">
+      <DependentUpon>201503030844469_DateTimeSwitch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BudgetCategory.cs" />
     <Compile Include="Repository\BudgetCategoryRepository.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503020725410_BudgetCategories.resx">
       <DependentUpon>201503020725410_BudgetCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503030844469_DateTimeSwitch.resx">
+      <DependentUpon>201503030844469_DateTimeSwitch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

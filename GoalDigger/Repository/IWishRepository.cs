@@ -18,7 +18,7 @@ namespace GoalDigger.Repository
         int CalculateMonth(Wish W); //
         IEnumerable<Wish> All(); //
         Wish GetById(int WishId); //
-        Wish GetByDate(string date); //
+        Wish GetByDate(DateTime date); //
         IQueryable<Wish> SearchFor(Expression<Func<Wish, bool>> predicate);
     }
 }

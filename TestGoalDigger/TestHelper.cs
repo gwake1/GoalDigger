@@ -56,7 +56,7 @@ namespace TestGoalDigger
         {
             throw new NotImplementedException();
         }
-        public void AndIShoulSeeAWishFor(string p1, string p2, int p3)
+        public void AndIShoulSeeAWishFor(string p1, DateTime p2, int p3)
         {
             var e = repo.GetByDate(p2);
             Assert.IsNotNull(window);
@@ -67,7 +67,7 @@ namespace TestGoalDigger
         }
         public void ThenIshouldSeeAWishFor(string p1, string p2, int p3)
         {
-            var e = repo.GetByDate(p2);
+            //var e = repo.GetByDate(p2);
             Assert.IsNotNull(window);
             SearchCriteria searchCriteria = SearchCriteria.ByAutomationId("WishList").AndIndex(0);
             ListBox list_box = (ListBox)window.Get(searchCriteria);

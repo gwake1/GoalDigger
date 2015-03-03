@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GoalDigger;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace GoalDigger.Repository
 {
@@ -18,6 +19,14 @@ namespace GoalDigger.Repository
             _dbContext.Wishes.Load();
         }
 
+        public ObservableCollection<Model.Wish> FilterData(string filter)
+        {
+            var query = from Wish in _dbContext.Wishes
+                        where Wish.Flow == filter
+                        select Wish;
+            return new ObservableCollection<Model.Wish>(query);
+        }
+
         public WishContext Context()
         {
             return _dbContext;
@@ -27,7 +36,7 @@ namespace GoalDigger.Repository
         {
             return _dbContext.Wishes;
         }
-
+  
         public int GetCount()
         {
             return _dbContext.Wishes.Count<Model.Wish>();
@@ -78,7 +87,7 @@ namespace GoalDigger.Repository
             return query.First<Model.Wish>();
         }
 
-        public Model.Wish GetByDate(string date)
+        public Model.Wish GetByDate(DateTime date)
         {
             var query = from Wish in _dbContext.Wishes
                         where Wish.Date == date

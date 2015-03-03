@@ -11,7 +11,7 @@ namespace GoalDigger.Model
     public class Wish: INotifyPropertyChanged
     {
         public int WishId { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Category { get; set; }
@@ -22,7 +22,7 @@ namespace GoalDigger.Model
             //something
         }
 
-        public Wish(string WishName, string WishDate, int WishPrice, string WishCategory, string WishFlow)
+        public Wish(string WishName, DateTime WishDate, int WishPrice, string WishCategory, string WishFlow)
         {
             this.Date = WishDate;
             this.Name = WishName;
